@@ -1,0 +1,138 @@
+body{
+    line-height:150%;margin:0;padding:0;
+}
+
+h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,li,p,span,i,em{margin:0;padding:0;font-style:normal;}
+h1,h2,h3,h4,h5,h6{font-size:14px;}
+dl,dt,dd,ul,li{list-style-type:none;display:block;}
+
+a{
+    color:#000;
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:underline;
+}
+
+.box{
+    clear:both;
+    margin:0 auto; 
+}
+.city-lists{
+    width:916px;
+    height:408px;
+    background:#E7E2DF;
+    margin:0 auto;
+    position:relative;
+}
+
+.list-title{
+    font: 18px/45px "微软雅黑";
+    color: rgb(255, 255, 255);
+    width:610px;
+    height:45px;
+    top:-1px;
+    left:-1px;
+    padding: 0px 14px 14px;
+    z-index:100;
+    background:url(../image/bd_bg1.jpg) no-repeat;
+    position:absolute;/*absolute如果最近的父元素没有定义，则相对于html绝对定位，好处是可以释放位置，所以下边的list-left可以沾满整个高度*/
+}
+.list-left{
+    height: 344px; 
+    width: 552px; 
+    float:left;
+    background:#F9F1E6;
+    position:absolute;
+    padding-top:64px;
+    padding-left:25px;
+}
+
+.list-left ul li{
+    color:#fff;
+    height: 107px; 
+    width: 130px;
+    font:18px/107px "温软雅黑";
+    float:left;
+    text-align:center;
+    background: #707070;
+    margin:0px 3px 3px 0px; 
+    cursor:pointer;/*鼠标移动上去出现小手*/
+}
+
+/*设置第一个li默认显示的颜色*/
+.list-left ul .list_cutLi{
+    background:#6B0904;
+}
+
+.list-right{
+    width:336px;
+    float:right;
+}
+.list-right-t{
+    width:333px;
+}
+.left-btn{
+    padding:0px 0px 0px 5px;
+    width:23px;
+    height:21px;
+    float:left;
+    margin-top:145px;
+    cursor:pointer;
+    display:block;
+    background:url(../image/bd_lbtn.jpg) no-repeat;
+}
+.right-btn{
+    padding:0px 0px 0px 5px;
+    width:23px;
+    height:21px;
+    float:right;
+    margin-top:145px;
+    cursor:pointer;
+    display:block;
+    background:url(../image/bd_rbtn.jpg) no-repeat;
+}
+.left-btn:hover{
+    background:url(../image/hbd_lbtn.jpg) no-repeat;
+}
+.right-btn:hover{
+    background:url(../image/hbd_rbtn.jpg) no-repeat;
+}
+.right-box{
+    float:left;
+    width:268px;
+    height:333px;
+    overflow:hidden;
+    position:relative;/*right-main的absolute的父级*/
+}
+.right-box-main{
+    width:3216px;/*12张图片的宽度*/
+    height:333px;
+    position:absolute;
+    top:10px;
+    left:0;
+}
+.right-box-main ul li{
+    height:333px;
+    width:268px;
+    float:left;
+    font-family:"温软雅黑";
+}
+
+.right-box-main img{
+    width:268px;
+    height:173px;
+}
+.bc_chgTitle{
+    height:54px;
+    width:268px;
+    text-align:center;
+    line-height:54px;
+    font: bold 16px/54px "微软雅黑";
+}
+.right-box-main ul li p{
+    font-size:14px;
+    width:268px;
+    line-height:25px;
+    padding-top:15px;
+}

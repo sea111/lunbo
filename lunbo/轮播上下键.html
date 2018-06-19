@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+        <title>test_ch4</title>
+        <meta charset="utf-8"/>      
+    </head>
+    <style>
+    	*{
+    		padding:0;margin:0;
+    	}
+    	ul {list-style:none; padding: 0;}
+		ul li {
+		    display:inline-block;
+		    margin: 10px 2px 0;
+		    padding: 8px;
+		}
+		ul li a {
+		    display: block;
+		    height: 80px;
+		    width: 128px;
+		}
+		ul li img{
+		   height: 80px;
+		   width: 128px;
+		}
+		a { text-decoration:none;}
+		p{
+		   color: blue;
+		   font-size: 12px;
+		   margin: 0;
+		   padding:0;
+		}
+		span {
+		    font-size: 12px;
+		    color: gray;
+		}
+		#wrap {
+		    width: 595px;
+		    overflow: hidden;
+		    border: 1px solid gray;
+		}
+		#video {
+		    position: relative;
+		    left: 0px;
+		    height: 160px;
+		    width: 592px;
+		}
+		#inner {
+		    width: 2500px;
+		    height: 170px;
+		    margin-bottom: 10px;
+		}
+		#head {
+		    background: #fff;
+		}
+		
+		#head_l span {
+		    display: inline-block;
+		}
+		
+		#right,#left{
+		    color: black;
+		    font-size: 14px;
+		    margin-right: 20px;
+		    cursor: pointer;
+		}
+		.white {
+		    width: 5px;
+		    height: 5px;
+		    background-color: white;
+		    margin-right:10px;
+		    border: 1px solid gray;
+		}
+		.blue{
+		    width: 5px;
+		    height: 5px;
+		    background-color: blue;
+		    margin-right:10px;
+		    border: 1px solid gray;
+		}
+    </style>
+    <body>
+        <div id="wrap">
+            <div id="head" >
+                <div id="head_l">
+                    <div id="head_l_w">
+	                    <span  class="white blue"  ></span>
+	                    <span  class="white"></span>
+	                    <span  class="white"></span>
+	                    <span  class="white"></span> 
+                    </div>
+                    <span id="left">左</span><span id="right">右</span>
+                </div>              
+            </div>
+            <div id="video">
+	            <div id="inner">    
+	                    <ul>
+	                        <li><a href="">
+	                                <img src="../images/nature1.jpg" alt="" /></a>
+	                                <p>海贼王</p>
+	                                <span>播放：28,276</span></li>
+	                        <li><a href="">
+	                                <img src="../images/nature2.jpg" alt="" /></a>
+	                                <p>海贼王</p>
+	                                <span>播放：28,276</span></li>
+	                        <li><a href="">
+	                                <img src="../images/nature3.jpg" alt="" /></a>
+	                                <p>海贼王</p>
+	                                <span>播放：28,276</span></li>
+	                        <li><a href="">
+	                                <img src="../images/nature4.jpg" alt="" /></a>
+	                                <p>海贼王</p>
+	                                <span>播放：28,276</span></li>
+	                        <li><a href="">
+	                                <img src="../images/nature5.jpg" alt="" /></a>
+	                                <p>哆啦A梦</p>
+	                                <span>播放：33,326</span></li>
+	                        <li><a href="">
+	                                <img src="../images/nature6.jpg" alt="" /></a>
+	                                <p>哆啦A梦</p>
+	                                <span>播放：33,326</span></li>
+	                        <li><a href="">
+	                                <img src="../images/nature7.jpg" alt="" /></a>
+	                                <p>哆啦A梦</p>
+	                                <span>播放：33,326</span></li>
+	                        <li><a href="">
+	                                <img src="../images/nature8.jpg" alt="" /></a>
+	                                <p>哆啦A梦</p>
+	                                <span>播放：33,326</span></li>
+	                        <li><a href="">
+	                                <img src="../images/nature9.jpg" alt="" /></a>
+	                                <p>火影忍者</p>
+	                                <span>播放：28,276</span></li>
+	                        <li><a href="">
+	                                <img src="../images/nature10.jpg" alt="" /></a>
+	                                <p>火影忍者</p>
+	                                <span>播放：28,276</span></li>
+	                        
+	                    </ul>             
+	            </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var page = 1;
+        var v_width = $("#video").width() + 20;
+        $("#right").click(function(e){  
+	        if(!$("#video").is(":animated")){
+	            if(page % 4 == 0){         
+	                $("#video").animate({left:"0px"},1000); 
+	                page = 1;
+	            }else {
+	                $("#video").animate({left:'-='+v_width},1000);
+	                page++;
+	            }
+	        }
+            $("#head_l_w span").attr("class","white");
+            $("span.white").eq(page%4-1).attr("class","blue");
+            
+        });
+        $("#left").click(function(){
+	        if(!$("#video").is(":animated")){
+	            if(page % 4 == 1){         
+	                $("#video").animate({left:'-='+v_width*3},1000); 
+	                page = 4;
+	            }else {
+	                $("#video").animate({left:'+='+v_width},1000);
+	                page--;
+	            }
+	            $("#head_l_w span").attr("class","white");
+	            $("span.white").eq(page%4-1).attr("class","blue");
+	        }
+	        });
+        });
+    </script>
+</html>

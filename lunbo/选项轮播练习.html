@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			padding:0;margin:0;
+		}
+		a{
+			text-decoration:none;
+		}
+		html,body{
+			width:100%;
+			height:100%;
+		}
+		body{
+			display:flex;
+			align-items:center;/*水平居中*/
+			justify-content:center;/*垂直居中*/
+		}
+		.parent{
+			width:750px;
+			height:300px;
+		}
+		/*轮播*/
+		.top p{
+			width:90%;
+			margin:0 auto;
+		}
+		.top p a{
+			display:inline-block;
+			line-height:20px;
+			width:23%;
+			padding:10px 0;
+			text-align:center;
+			border:2px solid transparent;
+			color:#D2691E;
+		}
+		.top p a.selected{
+			border:2px solid #E4393C;
+			color:#E4393C;
+		}
+		/*图片*/
+		.bottom{
+			width:650px;
+			margin:0 auto;
+			height:200px;
+			position:relative;
+			margin-top:30px;
+		}
+		.bottom a{
+			position:absolute;
+		}
+		.prev{
+			display:inline-block;
+			width:20px;
+			height:20px;
+			position:absolute;
+			left:20px;
+			top:20px;
+		}
+		.next{
+			display:inline-block;
+			width:20px;
+			height:20px;
+			position:absolute;
+			right:20px;
+			top:20px;
+		}
+	</style>
+	<body>
+		<div class="parent">
+			<div class="top">
+				<p>
+					<a href="">花草树木</a>
+					<a href="">虫鱼鸟兽</a>
+					<a href="">碧海蓝天</a>
+					<a href="">奇特怪石</a>
+				</p>
+			</div>
+			<div class="bottom">
+				<a href=""><img src="../images/nature1.jpg"/></a>
+				<a href=""><img src="../images/nature2.jpg"/></a>
+				<a href=""><img src="../images/nature3.jpg"/></a>
+				<a href=""><img src="../images/nature4.jpg"/></a>
+			</div>
+			<!--<i class="prev"><</i>
+			<i class="next">></i>-->
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+	<script>
+		var a=0;
+		var t=null;
+		$(".bottom>a:not(:first-child)").hide();
+		t=setInterval("autoMove()",2000);
+		//鼠标进入轮播停止
+		$(".parent").hover(function(){
+			clearInterval(t)
+		},function(){
+			t=setInterval("autoMove()",2000);
+		})
+		//当鼠标进去对应项时图片对应变化
+		$(".top p>a").hover(function(){
+			clearInterval(t);
+			var num=$(this).index();
+			showThis(num);
+		})
+		
+		function autoMove(){
+			a++;
+			if(a>=4){
+				a=0;
+			}
+			play(a);
+		}
+		function play(a){
+			$(".bottom>a").filter(":visible").fadeOut(500).parent().children().eq(a).fadeIn(1000);
+			$(".top p a").eq(a).addClass("selected").siblings().removeClass("selected");
+		}
+		//鼠标进入的情况
+		function showThis(sum){
+			$(".bottom>a").eq(sum).fadeIn(1000).siblings().fadeOut(500);
+			$(".top p a").eq(sum).addClass("selected").siblings().removeClass("selected");
+		}
+	</script>
+</html>

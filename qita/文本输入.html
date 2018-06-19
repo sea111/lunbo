@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+    	<div contenteditable="true" onmouseup="SetToBold ();">选择文本加粗，放开文本不加粗</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	<script>
+		function SetToBold(){
+			document.execCommand ('bold', false, null);////使选中区域的文字加粗;
+			//设置背景颜色;
+			document.execCommand("BackColor","false","#eee");
+		}
+	</script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{padding:0;margin:0;}
+		.icon{
+			height:40px;
+			line-height:40px;
+			width:200px;
+			text-align:center;
+			font-size:16px;
+			color:#fff;
+			background:#009966;
+		}
+		.icon-com{
+			display:inline-block;
+			width:28px;
+			height:16px;
+			margin-left:20px;
+		}
+		.icon-con{
+			background:url(images/pyx-arrow1.png) no-repeat;
+			background-size:100% 100%;
+		}
+		.change-con{
+			background:url(images/pyx-arrow2.png) no-repeat;
+			background-size:100% 100%;
+		}
+	</style>
+	<body>
+		<div class="icon"><span>改变图标</span><img src="img/schq-close.png" id="caocao_pic" class="icon-com"/></div>
+	
+		
+	
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script>
+	
+		/*改变图标的第一种方法*/
+		/*$("#caocao_pic").click(function(){
+
+		 	$(this).attr('src',$(this).attr('src')=='img/schq-close.png'?'img/schq-open.png':'img/schq-close.png');
+		
+		})*/
+		
+		/*改变图标的第二种方法*/
+		$("#caocao_pic").click(function(){
+	        if(this.src.search("img/schq-open.png")!=-1){
+	
+	            this.src="img/schq-close.png";
+	
+	        }else{
+	
+	            this.src="img/schq-open.png"
+	        }
+	    })
+		
+	  
+		
+		
+	</script>
+</html>

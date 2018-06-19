@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{padding:0;margin:0;}
+		ul,li{
+			list-style:none;
+		}
+		a{
+			text-decoration:none;
+		}
+		.main{
+			width:400px;
+			height:320px;
+			margin:0 auto;
+			position:relative;
+		}
+		.main a{
+			position:absolute;
+		}
+		.main a img{
+			width:100%;
+			height:320px;
+		}
+		.main ul li.selected{
+			background:#D2691E;
+		}
+		.main ul{
+			position:absolute;
+			z-index:2;
+			bottom:10px;
+			left:25%;
+		}
+		.main ul li{
+			display:inline-block;
+			width:20px;
+			height:20px;
+			border-radius:50%;
+			cursor:pointer;
+			text-align:center;
+		}
+	</style>
+	<body>
+		<div class="main">
+			<a><img src="images/nature1.jpg"/></a>
+			<a><img src="images/nature2.jpg"/></a>
+			<a><img src="images/nature3.jpg"/></a>
+			<a><img src="images/nature4.jpg"/></a>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	<script>
+		//定义变量和定时器
+		var t=null;
+		var n=0;//动态变化
+		var count;
+		
+		count=$(".main a").length;//图片的个数，给动态变化的n备用
+		//让不是轮播中的第一个隐藏
+		$(".main a:not(:first-child)").hide();
+		//点击当前li，当前li对应的图片显示出来
+		$(".main ul li").click(function(){
+			var index=$(this).text()-1; //下标
+			n=index;
+			//当前显示图片渐隐，并匹配下一个渐显示
+			//filter() 方法将匹配元素集合缩减为匹配指定选择器的元素。
+			$(".main a").filter(".visible").fadeOut(500).parent().children().eq(index).fideIn(1000);
+			//给当前li追加类，改变当前背景颜色
+			$(this).addClass("selected");
+			//同时移除当前li的所有兄弟类名selected,还原背景颜色
+			$(this).siblings().removeClass("selected");
+		})
+		//定义定时器3秒执行一次
+		t=setInterval("autoMove()",3000);
+		//当鼠标进入的时候定时器停止，移除时定时器开始
+		$(".main").hover(function(){
+			clearInterval(t)
+		},function(){
+			t=setInterval("autoMove()",3000);
+		})
+		//定义自动轮播函数
+		function autoMove(){
+			if(n>=(count-1)){
+				n=0;
+			}else{
+				++n;
+			}
+			//给li执行匹配事件
+			$(".main ul li").eq(n).trigger("click");
+			$(".main ul li").eq(n).trigger("mouseover");
+		}
+	</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height:5000px;
+		}
+		#side{
+			width: 50px;
+			height: 100px;
+			background-color: #000000;
+			position:absolute;
+			right: 0;
+			top:45%;
+			color:#fff;	
+		}
+	</style>
+	</head>
+	<body>
+	<div id="side">
+		sssssss
+	</div>
+	<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	
+	$(function() { 
+		var $sidebar = $("#side"); 
+		var $window = $(window); 
+		$window.scroll(function() {
+			$sidebar.stop(true).animate({ 
+				'marginTop': $window.scrollTop() 
+			},1000); 
+		
+		}); 
+		window.onload=function(){
+			$(window).trigger('scroll'); //页面加载完毕后自动触发事件
+		};
+		$(window).resize(function(){
+			$(window).trigger('scroll'); //刷新窗口的scroll事件
+		})
+	});
+	
+	
+	
+	</script>
+	</body>
+</html>

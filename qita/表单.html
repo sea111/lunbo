@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+<title></title>
+</head>
+<style type="text/css">
+	.err{
+		color:#ff0000;
+		font-weight: bold;
+		display: none;
+	}
+</style>
+<body>
+	<form action="" method="post">
+		<p>
+			<input type="text" name="zhanghao" id="" placeholder="请输入账号" class="atch"/>
+			<span class="err">账号不低于5位</span>
+		</p>
+		<p>
+			<input type="password" name="mima" id="" placeholder="请输入密码" class="atch"/>
+			<span class="err">密码有误</span>
+		</p>
+		<p>
+			<input type="password" name="twomima" id="" placeholder="请再次输入密码" class="atch"/>
+			<span class="err">密码不一致</span>
+		</p>
+		<p>
+			<input type="text" name="youxiang" id="" placeholder="请输入邮箱" class="atch"/>
+			<span class="err">邮箱格式不正确</span>
+		</p>
+		<p>
+			<input type="text" name="haoma" id="" placeholder="请输入手机号码" maxlength="11" class="atch"/>
+			<span class="err">手机号码不正确</span>
+		</p>	
+		<input type="submit" value="提交"/>
+	</form>
+	<script type="text/javascript">
+		$("input[name=zhanghao]").blur(function(){
+			val=this.value;
+			if(val.length<5){
+				$(this).data({"s":0});
+				$(this).next().show();
+			}else{
+				$(this).data({"s":1});
+				$(this).next().hide();
+			}
+		});
+		$("input[name=mima]").blur(function(){
+			val=this.value;
+			if(val.length<8){
+				$(this).data({"s":0});
+				$(this).next().show();
+			}else{
+				$(this).data({"s":1});
+				$(this).next().hide();
+			}
+		});
+		$("input[name=twomima]").blur(function(){
+			var mima=$(this).val();
+			if($(this).val()!=mima){
+				$(this).data({"s":0});
+				$(this).next().show();
+			}else{
+				$(this).data({"s":1});
+				$(this).next().hide();
+			}
+		});
+		$("input[name=youxiang]").blur(function(){
+			var email=$(this).val();
+			if(!email.match(/^\w+@\w+\.\w+$/i)){
+				$(this).data({"s":0});
+				$(this).next().show();
+			}else{
+				$(this).data({"s":1});
+				$(this).next().hide();
+			}
+		});
+		$("input[name=haoma]").blur(function(){
+			var iphone=$(this).val();
+			if(!iphone.match(/^139\d{8}$/)){
+				$(this).data({"s":0});
+				$(this).next().show();
+			}else{
+				$(this).data({"s":1});
+				$(this).next().hide();
+			}
+		});
+	
+		$("form").submit(function(){
+			$(".atch").blur();
+			tot=0;
+			$(".atch").each(function(){
+				tot+=$(this).data("s");
+				console.log(tot)
+			})
+			if(tot!=5){
+				return false;
+			}else{
+			
+			}
+		})
+	</script>
+</body>
+</html>

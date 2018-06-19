@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="telephone=no" name="format-detection">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no minimal-ui">
+		<title></title>
+	</head>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		#video{
+			width:100%;
+		}
+		
+		/*.videoWrap{
+			background:#000;
+			opacity: 0.7;
+			position: absolute;
+			left:0;
+			top:0px;
+			right:0;
+			bottom:0;
+			margin:auto;
+			overflow: hidden;
+		}
+		video{
+			position:absolute;
+			left:0;
+			top:0;
+			bottom:0;
+			right:0;
+			margin:auto;
+			width:100%;
+		}
+		.videoWrap div.icon{
+			width:0.96rem;
+			height:0.96rem;
+			background: url(../images/header2.png);
+			background-size: 0.96rem 0.96rem;
+			margin:0rem auto;
+			text-align: center;
+		}*/
+		
+	</style>
+	<body>
+		<video controls="controls" id="video" preload="metadata">
+			<source src="http://114.215.249.223:83/pag/114.215.249.223/7302/007375/0/SUB/TCP/live.m3u8" type="video/mp4"></source>
+		</video>
+		<!-- <div style='width:100%;height:100%' class='videoWrap'>
+		 	<video preload='none' src="http://114.215.249.188:83/pag/114.215.249.188/7302/007906/0/SUB/TCP/live.m3u8" style="" webkit-playsinline='true' controls='controls'></video>
+		 	<div class="icon"></div>
+		 <div>-->
+		<!--<video
+			autoplay="autoplay"
+			controls="controls"
+	        x5-video-orientation="portraint"
+	        src="http://114.215.249.223:83/pag/114.215.249.223/7302/007375/0/SUB/TCP/live.m3u8"
+	        loop
+	        x-webkit-airplay="allow" 
+	        playsinline="true" 
+	        x5-video-player-fullscreen="true"
+	        style="object-fit: contain; width: 100%; min-height: 100%; display: block;" 
+	        preload="none"
+	        poster=""
+	        webkit-playsinline="true">
+	    </video>    -->
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+	<script>
+		document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + "px";
+		window.addEventListener("resize",function(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + "px";
+		},false);
+		
+		/*video=document.getElementsByTagName('video')[0];
+		$("video").on('click',function(){
+			if(video.paused){
+				video.play();
+				$('video').show();
+				$(".icon").hide();
+			}else{
+				video.pause();
+				$(".icon").show();
+			}
+		})*/
+	</script>
+</html>
